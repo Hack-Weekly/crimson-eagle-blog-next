@@ -6,12 +6,12 @@ import RoundArrow from "./round-arrow"
 type ThumbLinkProps = {
     title: string,
     url: string,
-    dateString: string,
+    date: Date,
     imageSrc: string,
     tag: string,
     className?: string,
 }
-const ThumbLinkLarge: FC<ThumbLinkProps> = ({ title, url, dateString, imageSrc, tag, className }) => {
+const ThumbLinkLarge: FC<ThumbLinkProps> = ({ title, url, date, imageSrc, tag, className }) => {
     
     const tagCap = tag[0]?.toUpperCase() as string + tag.slice(1).toLowerCase()
 
@@ -20,7 +20,7 @@ const ThumbLinkLarge: FC<ThumbLinkProps> = ({ title, url, dateString, imageSrc, 
             font-manrope font-semibold text-white focus-secondary ${ className || '' }` }>
             <Image
                 className="w-full h-full object-cover"
-                src={ `/images/${ imageSrc }` }
+                src={ imageSrc.includes('http') ? imageSrc : `/images/${ imageSrc }` }
                 width={ 1065 }
                 height={ 689  }
                 alt=""
@@ -28,7 +28,7 @@ const ThumbLinkLarge: FC<ThumbLinkProps> = ({ title, url, dateString, imageSrc, 
             <div className="absolute inset-8 flex flex-wrap justify-between items-start">
                 <div className="w-full sm:w-auto mr-4 mb-4 flex flex-col justify-start items-start">
                     <div className="text-lg sm:text-xl mb-4 py-1 px-4 rounded-[15px] bg-accent">
-                        { (new Intl.DateTimeFormat('en-US', { month: 'short', day: '2-digit', year: 'numeric' }).format(new Date(dateString))) }
+                        { (new Intl.DateTimeFormat('en-US', { month: 'short', day: '2-digit', year: 'numeric' }).format(date)) }
                     </div>
                     <div className="text-lg sm:text-xl whitespace-nowrap py-1 px-4 border-2 rounded-[15px] border-white">
                         &bull; { tagCap }
