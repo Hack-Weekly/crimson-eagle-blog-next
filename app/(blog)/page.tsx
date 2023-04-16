@@ -43,7 +43,7 @@ const Home: NextPage = () => (
             <div className="w-full h-1/4 flex items-center">
                 <div className="flex flex-wrap items-baseline">
                     <h1 className="mr-2 text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-semibold font-signika">Best of the Week</h1>
-                    <Link href="/posts" className="flex items-baseline text-xl xl:text-2xl focus-secondary">
+                    <Link href="\posts" className="flex items-baseline text-xl xl:text-2xl focus-secondary">
                         See all posts
                         <Image
                             className="ml-2"

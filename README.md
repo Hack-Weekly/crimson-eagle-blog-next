@@ -1,3 +1,5 @@
+For anyone working on this project. Please make a copy of .env.example and rename it to .env for the server to build correctly.
+
 # Create T3 App
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
