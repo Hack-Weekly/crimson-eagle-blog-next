@@ -4,6 +4,13 @@
 
 @layer components {
   .focus-secondary {
-    @apply focus:ring-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white;
+    @apply focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-white;
+  }
+
+  .admin-table th {
+    @apply border bg-secondary-200 px-4 py-2 text-center;
+  }
+  .admin-table td {
+    @apply border px-4 py-2;
   }
 }

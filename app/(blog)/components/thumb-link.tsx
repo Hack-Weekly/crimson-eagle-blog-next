@@ -6,12 +6,12 @@ import RoundArrow from "./round-arrow"
 type ThumbLinkProps = {
     title: string,
     url: string,
-    dateString: string,
+    date: Date,
     imageSrc: string,
     tag: string,
     className?: string,
 }
-const ThumbLink: FC<ThumbLinkProps> = ({ title, url, dateString, imageSrc, tag, className }) => {
+const ThumbLink: FC<ThumbLinkProps> = ({ title, url, date, imageSrc, tag, className }) => {
 
     
     const tagCap = tag[0]?.toUpperCase() as string + tag.slice(1).toLowerCase()
@@ -21,13 +21,13 @@ const ThumbLink: FC<ThumbLinkProps> = ({ title, url, dateString, imageSrc, tag, 
             font-manrope font-semibold text-white focus-secondary ${ className || '' }` }>
             <Image
                 className="w-full h-full object-cover"
-                src={ `/images/${ imageSrc }` }
+                src={ imageSrc.includes('http') ? imageSrc : `/images/${ imageSrc }` }
                 width={ 690 }
                 height={ 440 }
                 alt=""
             />
             <div className="absolute top-4 left-8 text-lg sm:text-xl">
-                { (new Intl.DateTimeFormat('en-US', { month: 'short', day: '2-digit', year: 'numeric' }).format(new Date(dateString))) }
+                { (new Intl.DateTimeFormat('en-US', { month: 'short', day: '2-digit', year: 'numeric' }).format(date)) }
             </div>
             <div className="absolute left-8 right-8 sm:right-32 lg:right-8 2xl:right-36 bottom-8
                 flex flex-wrap 2xl:flex-nowrap justify-between items-center">
