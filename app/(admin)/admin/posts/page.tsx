@@ -2,6 +2,7 @@ import type { NextPage } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { prisma } from "~/server/db"
+import DeleteForm from "./components/delete-form"
 
 export const metadata = {
   title: 'Posts :: Crimson Blog',
@@ -28,7 +29,7 @@ const Posts: NextPage = async () => {
         <main className="grow p-6 font-signika">
             <h1 className="mr-2 text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-semibold">Posts</h1>
             <section className="py-6">
-                <table className="w-full text-center">
+                <table className="w-full text-center admin-table">
                     <thead>
                         <tr>
                             <th>
@@ -48,7 +49,7 @@ const Posts: NextPage = async () => {
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="align-middle">
                     { posts.map(post => (
                         <tr key={ post.id }>
                             <td>
@@ -74,7 +75,10 @@ const Posts: NextPage = async () => {
                                 { new Intl.DateTimeFormat('en-US', { month: 'short', day: '2-digit', year: 'numeric' }).format(post.createdAt) }
                             </td>
                             <td>
-                                <Link href={ `/admin/posts/${ post.id }` }>Edit</Link>
+                                <div className="flex justify-evenly items-center">
+                                    <Link href={ `/admin/posts/${ post.id }` }>Edit</Link>
+                                    <DeleteForm id={ post.id } title={ post.title } />
+                                </div>
                             </td>
                         </tr>
                     ))}
