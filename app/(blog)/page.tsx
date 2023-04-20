@@ -46,7 +46,7 @@ const Home: NextPage = async () => {
                 </div>
                 { posts[0] && (
                     <ThumbLinkLarge key={ posts[0].id } className="lg:h-3/4"
-                            title={ posts[0].title } url={ slugify(posts[0].title) }
+                            title={ posts[0].title } url={ '/posts/' + slugify(posts[0].title) }
                             date={ posts[0].createdAt } tag={ `travel` }
                             imageSrc={ posts[0].image ? posts[0].image : '' } />
                 ) }
@@ -54,7 +54,7 @@ const Home: NextPage = async () => {
             <div className="w-full lg:w-2/5 flex flex-col gap-7 justify-stretch">
             { posts.slice(1).map(article => (
                 <ThumbLink key={ article.id } className="lg:h-1/2"
-                    title={ article.title } url={ slugify(article.title) }
+                    title={ article.title } url={ '/posts/' + slugify(article.title) }
                     date={ article.createdAt } tag={ `travel` }
                     imageSrc={ article.image ? article.image : '' } />
             )) }

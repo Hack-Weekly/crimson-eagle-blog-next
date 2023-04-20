@@ -12,7 +12,7 @@ const RootLayout = ({
 		<body>
 			<div className="min-h-screen flex flex-col border-y-8 border-primary">
 				<nav className="flex flex-wrap md:flex-nowrap justify-between items-center mx-8 lg:mx-10 xl:mx-12">
-					<Link href=""
+					<Link href="/"
 						className="flex items-center shrink-0 my-4 p-1
 							font-bold text-5xl md:text-4xl lg:text-5xl font-signika whitespace-nowrap
 							focus-secondary">
